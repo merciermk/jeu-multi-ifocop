@@ -1,0 +1,27 @@
+doctype html
+html(lang="fr")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        script(src='scripts/script.js')
+        script(src='/socket.io/socket.io.min.js')
+        title Document
+    body 
+   
+        include ./includes/header
+        h3 Bonjour #{session}, bienvenu chez Math Demon
+        br
+        if session
+            p Vous devez trouver la réponse à l'équation : 
+            h3#text
+            form#formtext 
+                input#response(type='text')
+            h2 Classement Général 
+            ul#classement 
+        else 
+            h3 vous devez vous inscrire, puis vous connecter.
+            br
+            p#introduction Le principe du jeu est simple: Trouvez la solution aux équations avant les autres, si vous ou un adversaire trouve la réponse, l'équation change et la personne gagne 1 point.
+            p protection des données ? Not safe at all
+        p= text

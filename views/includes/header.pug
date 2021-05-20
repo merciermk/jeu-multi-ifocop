@@ -1,0 +1,13 @@
+header 
+    nav 
+        ul
+            //- Changement du menu en fonction de l'authentification
+            each item,index in navObject
+                //- si la personne est connecttée, on affiche acceuil et deconnection
+                if session && (index =="Accueil" || index=="Déconnexion")
+                    li 
+                        a(href="../" + item) #{ index }
+                //- si pas de session on affiche tout sauf deconnection
+                if !session && (index != "Déconnexion")
+                    li 
+                        a(href="../" + item) #{ index }
