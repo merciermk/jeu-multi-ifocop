@@ -9,7 +9,8 @@ const session = require('express-session')
 
 /* Mongo */
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb+srv://ifocop:ifocop@jeuifocop.ea8mi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const user = "ifocop:ifocop"
+const url = "mongodb+srv://" + user + "@jeuifocop.ea8mi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const database = 'jeuIfocop'
 const myCollection = 'utilisateurs'
 
@@ -226,10 +227,15 @@ function updateClassement() {
           data.forEach(item => {
             classement.push({ user: item.user, points: item.points })
           })
+          client.close()
         }
       })
+      
     }
-  })
+    
+  }
+
+  )
 }
 setInterval(() => {
   updateClassement()
