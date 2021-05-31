@@ -253,6 +253,7 @@ function addPoint(id) {
         } else {
           const collection = client.db(database).collection(myCollection)
           collection.updateOne({ 'user': user.name }, { $inc: { 'points': 1 } })
+          client.close()
         }
       })
     }
