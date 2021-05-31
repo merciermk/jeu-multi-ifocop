@@ -252,8 +252,14 @@ function addPoint(id) {
           console.log('Une erreur dans la fonction addPoint')
         } else {
           const collection = client.db(database).collection(myCollection)
-          collection.updateOne({ 'user': user.name }, { $inc: { 'points': 1 } })
-          
+          collection.updateOne({ 'user': user.name }, { $inc: { 'points': 1 } }, (error, result)=> {
+            if(error){
+              console.log("il y a une erreur dans updateOne de addPoint")
+            }else{
+              
+              client.close()
+            }
+          })
         }
       })
     }
@@ -297,5 +303,5 @@ io.on('connection', (socket) => {
 
 
 server.listen(port, () => {
-  console.log('listening on :${port}');
+  console.log(`listening on :${port}`);
 });
