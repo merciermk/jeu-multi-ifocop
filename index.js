@@ -6,6 +6,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const session = require('express-session')
+const port = process.env.PORT || 3000
 
 /* Mongo */
 const MongoClient = require('mongodb').MongoClient;
@@ -294,6 +295,6 @@ io.on('connection', (socket) => {
 });
 
 
-server.listen(3000, () => {
-  console.log('listening on :3000');
+server.listen(port, () => {
+  console.log('listening on :${port}');
 });
