@@ -111,6 +111,7 @@ app.post('/validation', (req, res, next) => {
           userSession = req.session
           userSession.user = req.body.user
           res.render('index', { session: JSON.stringify(userSession.user), navObject })
+          client.close()
         }
       })
     }
