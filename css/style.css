@@ -1,0 +1,52 @@
+nav{
+  min-width: 100vh;
+  min-height: 100px;
+  background-color: rgba(188, 143, 143, 0.404);
+
+}
+
+nav > ul{
+  
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+
+}
+
+nav > ul >li{
+  margin: 50px 50px auto 50px;
+  text-decoration: none;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 210px;
+  height: 210px;
+
+  text-align: center;
+}
+
+.auth > form > button{
+  margin-top: 20px
+}
+
+.sign-page, .auth{
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+}
+
+#classement, .classement{
+  text-align: center;
+}
+
+#text, #formtext, #response{
+  text-align: center;
+  margin: auto;
+}

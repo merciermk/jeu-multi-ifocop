@@ -6,8 +6,11 @@ html(lang="fr")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         script(src='scripts/script.js')
         script(src='/socket.io/socket.io.min.js')
+        link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css')
+        style
+            include ../css/style.css
         title Document
-    body 
+    body
    
         include ./includes/header
         h3 Bonjour #{session}, bienvenue chez Math Demon
@@ -16,9 +19,10 @@ html(lang="fr")
             p Vous devez trouver la réponse à l'équation : 
             h3#text
             form#formtext 
+                p Ecrivez votre réponse ci-dessous
                 input#response(type='text')
-            h2 Classement Général 
-            ul#classement 
+            h2.classement Classement Général 
+            ol#classement 
         else 
             h3 vous devez vous inscrire, puis vous connecter.
             br
